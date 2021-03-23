@@ -1,10 +1,7 @@
-// Video : https://www.youtube.com/watch?v=ZVznzY7EjuY
-// Me quedé en 1:24:08
-
 const express = require('express');
 const app = express();
-const server = require("http").Server(app);
-const io = require("socket.io")(server);
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 const { v4: uuidv4 } = require('uuid');
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
@@ -18,6 +15,7 @@ app.get('/:room', (req, res) => {
     res.render('room', { roomId: req.params.room })
 })
 
+
 io.on('connection', socket => {
     socket.on('join-room', (roomId) => {
         socket.join(roomId);
@@ -26,6 +24,6 @@ io.on('connection', socket => {
 })
 
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
   console.log(`Ready!`);
 });

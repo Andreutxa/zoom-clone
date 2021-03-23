@@ -1,7 +1,6 @@
 // Js frontend
 
-const socket = io('/');
-
+const socket = io('/')
 const videoGrid = document.getElementById('video-grid');
 const myVideo = document.createElement('video');
 myVideo.muted = true;
@@ -16,14 +15,15 @@ navigator.mediaDevices.getUserMedia({
     // variable recieves the video
 })
 
-socket.emit('join-room', ROOM_ID);
+console.log(ROOM_ID)
+socket.emit('join-room', ROOM_ID)
 
-socket.on('user-connected', () => {
-    connectToNewUser();
+socket.on('user-connected', () => {
+    connectToNewUser()
 })
 
 const connectToNewUser = () => {
-    console.log('new user');
+    console.log('new user')
 }
 
 const addVideoStream = (video, stream) => {
