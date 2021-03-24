@@ -15,7 +15,8 @@ let peer = new Peer(undefined, {
     // to make the peer access from localhost, heroku... 
     host: '/',
     // our server is listening to this port
-    port: '3000'
+    // port: '3000'
+    port: '443'
 });
 
 let myVideoStream;
